@@ -1,0 +1,49 @@
+ProductTypes
+	- id					int
+	- uuid					String(255)
+	- nama 					String(255) 	(XL, Sermon, Tugas SD)
+	- created_at			date
+	- updated_at			date
+	
+Products
+	- id					int
+	- uuid					String(255)
+	- product_types_id		int				(XL, Sermon, Tugas SD)
+	- nama 					String(255)		(Buku, Baju Batik)
+	- harga_beli_satuan		int
+	- harga_jual_satuan		int
+	- tanggal_berlaku		date
+	- created_at			date
+	- updated_at			date
+	
+Units
+	- id					int
+	- uuid					String(255)
+	- nama 					String(255)		(Ciateul/Koper/MW/TKI)
+	- jenis					String(100) 	(SD/SMP/SMA)
+	- created_at			date
+	- updated_at			date
+	
+Stocks
+	- id					int
+	- uuid					String(255)
+	- product_id			int
+	- harga_beli			int
+	- harga_jual			int	
+	- qty					int
+	- tanggal_berlaku		date
+	- created_at			date
+	- updated_at			date
+
+StockTransactions
+	- id					int
+	- uuid					String(255)
+	- stock_id				int
+	- unit_id				int
+	- harga_beli			int
+	- harga_jual			int	
+	- qty					int
+	- tipe					String(255) (Barang Masuk / Barang Keluar)
+	- tanggal_berlaku		date
+	- created_at			date
+	- updated_at			date
