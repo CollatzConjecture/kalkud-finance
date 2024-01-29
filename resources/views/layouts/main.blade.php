@@ -9,7 +9,7 @@
         <title>{{ $title }} — Kalam Kudus</title>
 
         <!-- Favicon -->
-        <link rel="icon" type="image/png" href="{{ asset('assets/images/kalkudLogo.png') }}" />
+        <link rel="icon" type="image/png" href="{{ asset('assets/images/kalkudLogo.jpg') }}" />
 
         <!-- Font -->
         <link rel="preconnect" href="https://fonts.googleapis.com">

@@ -2,33 +2,6 @@ import './bootstrap';
 import 'flowbite';
 import Alpine from "alpinejs";
 
-async function login(email, password) {
-    try {
-        const response = await fetch('/api/auth/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify({ email, password })
-        });
-
-        if (!response.ok) {
-            throw new Error('Login failed');
-        }
-
-        const data = await response.json();
-        if (data.status === 'success') {
-            localStorage.setItem('jwt_token', data.access_token);
-            window.location.href = '/home';
-        } else {
-            alert('Login failed: ' + data.message);
-        }
-    } catch (error) {
-        console.error('Error during login:', error);
-    }
-}
-
 document.addEventListener('DOMContentLoaded', (event) => {
     document.getElementById('loginButton').addEventListener('click', async function(e) {
         e.preventDefault();
