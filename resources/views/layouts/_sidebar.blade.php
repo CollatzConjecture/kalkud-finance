@@ -1,6 +1,6 @@
 <aside class="sidebar offcanvas max-lg:offcanvas-start max-lg:invisible min-lg:visible fixed h-screen flex flex-col overflow-y-auto justify-between bg-white w-[285px]" tabindex="-1" id="nav-sidebar">
     <div class="flex items-center gap-x-4 pt-7 pb-6 px-8">
-        <img src="{{ asset('assets/images/kalkudLogo.jpg') }}" alt="Kalkud Logo" class="w-12 h-12"/>
+        <img src="{{ asset('assets/images/kalkudLogo.png') }}" alt="Kalkud Logo" class="w-12 h-12"/>
         <div>
             <h6 class="text-md font-semibold text-navy">Finance Tracker</h6>
             <p class="text-sm text-grey-primary">Kalam Kudus</p>
