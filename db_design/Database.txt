@@ -41,7 +41,7 @@ StockTransactions
 	- stock_id				int
 	- unit_id				int
 	- harga_beli			int
-	- harga_jual			int	
+	- harga_jual			int
 	- qty					int
 	- tipe					String(255) (Barang Masuk / Barang Keluar)
 	- tanggal_berlaku		date
