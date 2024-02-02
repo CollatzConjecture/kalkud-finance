@@ -13,29 +13,29 @@
                 <i icon-name="layout-grid"></i>
                 <p class="text-grey-primary">Beranda</p>
             </a>
-            <a href="" class="item-menu {{ request()->routeIs('lowongan-kerja*') ? 'active' : '' }}">
-                <i icon-name="briefcase"></i>
-                <p class="text-grey-primary">Lowongan Kerja</p>
+            <a href="" class="item-menu {{ request()->routeIs('create-transaction*') ? 'active' : '' }}">
+                <i icon-name="pen"></i>
+                <p class="text-grey-primary">Create Transaction</p>
             </a>
-            <a href="" class="item-menu {{ request()->routeIs('pelamar-pekerjaan*') ? 'active' : '' }}">
+            <a href="" class="item-menu {{ request()->routeIs('stock*') ? 'active' : '' }}">
                 <i icon-name="clipboard-list"></i>
-                <p class="text-grey-primary">Pelamar Pekerjaan</p>
+                <p class="text-grey-primary">Stock</p>
             </a>
-            <a href="" class="item-menu {{ request()->routeIs('potensial*') ? 'active' : '' }}">
+            <a href="" class="item-menu {{ request()->routeIs('product*') ? 'active' : '' }}">
                 <i icon-name="clipboard-check"></i>
-                <p class="text-grey-primary">Pelamar Potensial</p>
+                <p class="text-grey-primary">Product</p>
             </a>
-            <a href="" class="item-menu {{ request()->routeIs('departemen*') ? 'active' : '' }}">
+            <a href="" class="item-menu {{ request()->routeIs('product-type*') ? 'active' : '' }}">
                 <i icon-name="book"></i>
-                <p class="text-grey-primary">Master Sekolah</p>
+                <p class="text-grey-primary">Product Type</p>
             </a>
-            <a href="" class="item-menu {{ request()->routeIs('tipe-pekerjaan*') ? 'active' : '' }}">
-                <i icon-name="file-spreadsheet"></i>
-                <p class="text-grey-primary">Tipe Pekerjaan</p>
+            <a href="{{ route('unit.index') }}" class="item-menu {{ request()->routeIs('unit*') ? 'active' : '' }}">
+                <i icon-name="school"></i>
+                <p class="text-grey-primary">Units</p>
             </a>
-            <a href="" class="item-menu {{ request()->routeIs('kutipan*') ? 'active' : '' }}">
-                <i icon-name="quote"></i>
-                <p class="text-grey-primary">Kutipan Kompas</p>
+            <a href="" class="item-menu {{ request()->routeIs('export-data*') ? 'active' : '' }}">
+                <i icon-name="table"></i>
+                <p class="text-grey-primary">Export Data</p>
             </a>
             <a href="" class="item-menu {{ request()->routeIs('pengguna*') ? 'active' : '' }}">
                 <i icon-name="users"></i>

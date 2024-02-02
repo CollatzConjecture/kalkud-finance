@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="Pencatatan Cashflow Kalam Kudus">
         <meta name="author" content="Kalkud Finance">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ $title }} — Kalam Kudus</title>
 
@@ -54,6 +55,26 @@
         
         <script>
             lucide.createIcons();
+        </script>
+
+        <script>
+            $(document).ready(function () {
+                var table = $("#table_datatables").DataTable({
+                    oLanguage: {
+                        sSearch: "Cari:",
+                        sLengthMenu: "Menampilkan _MENU_ data per halaman",
+                        sZeroRecords: "Tidak ditemukan data yang cocok",
+                        sInfo: "Menampilkan _START_ - _END_ dari _TOTAL_ data",
+                        sInfoEmpty: "Menampilkan 0 dari 0 data",
+                        sInfoFiltered: "(difilter dari _MAX_ total data)",
+                        sEmptyTable: "Tidak ada data yang tersedia di tabel",
+                        oPaginate: {
+                            sPrevious: "«",
+                            sNext: "»",
+                        },
+                    },
+                });
+            });
         </script>
     </body>
 </html>
