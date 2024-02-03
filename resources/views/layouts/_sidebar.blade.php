@@ -21,11 +21,11 @@
                 <i icon-name="clipboard-list"></i>
                 <p class="text-grey-primary">Stock</p>
             </a>
-            <a href="" class="item-menu {{ request()->routeIs('product*') ? 'active' : '' }}">
+            <a href="" class="item-menu {{ request()->routeIs('product') ? 'active' : '' }}">
                 <i icon-name="clipboard-check"></i>
                 <p class="text-grey-primary">Product</p>
             </a>
-            <a href="" class="item-menu {{ request()->routeIs('product-type*') ? 'active' : '' }}">
+            <a href="{{ route('product-type.index') }}" class="item-menu {{ request()->routeIs('product-type*') ? 'active' : '' }}">
                 <i icon-name="book"></i>
                 <p class="text-grey-primary">Product Type</p>
             </a>

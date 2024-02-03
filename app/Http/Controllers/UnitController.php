@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UnitRequest;
-use Flasher\Notyf\Prime\NotyfFactory;
 use App\Models\Unit;
-use Illuminate\Http\Request;
 
 class UnitController extends Controller
 {
@@ -40,7 +38,7 @@ class UnitController extends Controller
     /**
      * Store a newly created resource in storage.
      * 
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\UnitRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(UnitRequest $request)
