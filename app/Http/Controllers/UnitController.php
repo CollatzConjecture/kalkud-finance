@@ -28,7 +28,13 @@ class UnitController extends Controller
      */
     public function create()
     {
-        //
+        $unit = Unit::orderBy('nama')->get();
+
+        $data = [
+            'units' => $unit,
+        ];
+        
+        return view('pages.unit.add', $data);
     }
 
     /**
