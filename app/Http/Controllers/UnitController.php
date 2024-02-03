@@ -72,19 +72,25 @@ class UnitController extends Controller
      */
     public function edit(Unit $unit)
     {
-        //
+        return view('pages.unit.edit', compact('unit'));
     }
 
     /**
      * Update the specified resource in storage.
      * 
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\UnitRequest  $request
      * @param  \App\Unit  $Unit
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Unit $unit)
+    public function update(UnitRequest $request, Unit $unit)
     {
-        //
+        $validatedData = $request->validated();
+
+        // $validatedData['updated_by'] = auth()->id();
+
+        $unit->update($validatedData);
+    
+        return redirect()->route('unit.index')->with('success', 'Unit updated successfully.');
     }
 
     /**
