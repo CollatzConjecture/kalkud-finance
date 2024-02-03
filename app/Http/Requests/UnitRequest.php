@@ -11,7 +11,7 @@ class UnitRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,13 +22,12 @@ class UnitRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'uuid' => 'required|string|max:255|unique:units,uuid',
-            'nama' => 'required|string|max:255|in:Ciateul,Koper,MW,TKI',
-            'jenis' => 'required|string|max:100|in:SD,SMP,SMA',
+            'nama' => 'required|string|max:255|',
+            'jenis' => 'required|string|max:100|',
         ];
     }
 
-        /**
+    /**
      * Get custom messages for validator errors.
      *
      * @return array
