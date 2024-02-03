@@ -49,7 +49,8 @@ class UnitController extends Controller
 
         $unit = Unit::create($validatedData);
 
-        return redirect()->route('unit.index')->with('success', 'Data unit sekolah berhasil ditambahkan.');
+        return redirect()->route('unit.index')
+                ->with('success', 'Data unit sekolah berhasil ditambahkan.');
     }
 
     /**
@@ -60,7 +61,7 @@ class UnitController extends Controller
      */
     public function show(Unit $unit)
     {
-        //
+        return view('pages.unit.detail', compact('unit'));
     }
 
     /**
@@ -92,10 +93,9 @@ class UnitController extends Controller
      * @param  \App\Unit  $unit
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Unit $id, NotyfFactory $flasher)
+    public function destroy(Unit $unit)
     {
-        $id->delete();
-        $flasher->addSuccess('Data unit berhasil dihapus');
+        $unit->delete();
     
         return redirect()->route('unit.index')->with('success', 'Unit deleted successfully.');
     }

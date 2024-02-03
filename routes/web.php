@@ -21,4 +21,4 @@ Route::get('/login', [LoginController::class, 'showLoginForm']);
 Route::get('/register', [RegisterController::class, 'showRegistrationForm']);
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::resource('/unit', UnitController::class)->parameters(['unit' => 'id']);
+Route::resource('/unit', UnitController::class);
