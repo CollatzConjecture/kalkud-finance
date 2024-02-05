@@ -1,4 +1,4 @@
-<x-app-layout title="Edit Unit Sekolah">
+<x-app-layout title="Edit Tipe Barang">
     <div class="flex flex-col gap-y-10">
         <div>
             <a href="{{ url()->previous() }}" class="button-previous">

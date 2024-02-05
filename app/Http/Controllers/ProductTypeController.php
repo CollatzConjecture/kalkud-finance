@@ -48,7 +48,7 @@ class ProductTypeController extends Controller
         $productType = ProductType::create($validatedData);
 
         return redirect()->route('product-type.index')
-                ->with('success', 'Data unit sekolah berhasil ditambahkan.');
+                ->with('success', 'Data Tipe Produk sekolah berhasil ditambahkan.');
     }
 
     /**
@@ -88,7 +88,7 @@ class ProductTypeController extends Controller
 
         $productType->update($validatedData);
     
-        return redirect()->route('product-type.index')->with('success', 'Unit updated successfully.');
+        return redirect()->route('product-type.index')->with('success', 'Tipe Prouk Berhasil di Update.');
     }
 
     /**

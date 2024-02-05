@@ -52,7 +52,7 @@ class ProductController extends Controller
         $productType = Product::create($validatedData);
 
         return redirect()->route('product.index')
-                ->with('success', 'Data unit sekolah berhasil ditambahkan.');
+                ->with('success', 'Data Produk berhasil ditambahkan.');
     }
 
     /**
@@ -74,7 +74,9 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        $productType = ProductType::orderBy('nama')->get();
+
+        return view('pages.product.edit', compact('product', 'productType'));
     }
 
     /**
@@ -86,7 +88,13 @@ class ProductController extends Controller
      */
     public function update(ProductRequest $request, Product $product)
     {
-        //
+        $validatedData = $request->validated();
+
+        // $validatedData['updated_by'] = auth()->id();
+
+        $product->update($validatedData);
+    
+        return redirect()->route('product.index')->with('success', 'Product updated successfully.');
     }
 
     /**
