@@ -47,7 +47,7 @@ class Product extends Model
      *
      * @return BelongsTo
      */
-    public function product(): BelongsTo
+    public function productType(): BelongsTo
     {
         return $this->belongsTo(ProductType::class);
     }

@@ -42,7 +42,7 @@ class ProductType extends Model
      *
      * @return HasMany
      */
-    public function productTypes(): HasMany
+    public function product(): HasMany
     {
         return $this->hasMany(Product::class);
     }

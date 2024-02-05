@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductTypeController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UnitController;
@@ -26,5 +27,5 @@ Route::resource('/unit', UnitController::class);
 
 Route::resource('/product-type', ProductTypeController::class);
 
-Route::resource('/product', ProductTypeController::class);
+Route::resource('/product', ProductController::class);
 

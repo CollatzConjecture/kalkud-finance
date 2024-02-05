@@ -14,14 +14,14 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->uuid('uuid')->unique();
-            $table->unsignedBigInteger('product_types_id')->nullable();
+            $table->unsignedBigInteger('product_type_id')->nullable();
             $table->string('nama', 255);
             $table->integer('harga_beli_satuan');
             $table->integer('harga_jual_satuan');
             $table->dateTime('tanggal_berlaku');
             $table->timestamps();
 
-            $table->foreign('product_types_id')
+            $table->foreign('product_type_id')
                 ->references('id')
                 ->on('product_types')
                 ->onDelete('SET NULL');

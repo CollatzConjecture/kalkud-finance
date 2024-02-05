@@ -15,7 +15,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $productList = Product::orderBy('nama')->get();
+
+        return view('pages.product.index', compact('productList'));
     }
 
     /**

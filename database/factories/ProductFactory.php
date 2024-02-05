@@ -42,7 +42,7 @@ class ProductFactory extends Factory
         
         return [
             'uuid' => Str::uuid(),
-            'product_types_id' => ProductType::inRandomOrder()->first()->id,
+            'product_type_id' => ProductType::inRandomOrder()->first()->id,
             'nama' => $nama,
             'harga_beli_satuan' => $hargaBeliSatuan,
             'harga_jual_satuan' => $hargaJualSatuan,
