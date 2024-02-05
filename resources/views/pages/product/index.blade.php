@@ -32,8 +32,8 @@
                                 <td class="bg-white">{{ $index+1 }}</td>
                                 <td>{{ $product->productType->nama }}</td>
                                 <td>{{ $product->nama }}</td>
-                                <td>{{ $product->harga_beli_satuan }}</td>
-                                <td>{{ $product->harga_jual_satuan }}</td>
+                                <td>{{ number_format($product->harga_beli_satuan, 0, ',', '.') }}</td>
+                                <td>{{ number_format($product->harga_jual_satuan, 0, ',', '.') }}</td>
                                 <td>
                                 <div class="flex gap-x-3 justify-center">
                                     <a href="{{ route('product.show', $product->id) }}" class="button-primary px-5 py-2">
