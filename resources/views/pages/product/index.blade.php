@@ -31,7 +31,7 @@
                             @foreach ($productList as $index => $product)
                             <tr>
                                 <td class="bg-white">{{ $index+1 }}</td>
-                                <td>{{ $product->productType->nama }}</td>
+                                <td>{{ optional($product->productType)->nama ?? 'Null' }}</td>
                                 <td>{{ $product->nama }}</td>
                                 <td>{{ number_format($product->harga_beli_satuan, 0, ',', '.') }}</td>
                                 <td>{{ number_format($product->harga_jual_satuan, 0, ',', '.') }}</td>

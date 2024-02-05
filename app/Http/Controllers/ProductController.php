@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductRequest;
 use App\Models\Product;
+use App\Models\ProductType;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -27,7 +28,15 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $product = Product::orderBy('nama')->get();
+        $productType = ProductType::orderBy('nama')->get();
+
+        $data = [
+            'product' => $product,
+            'productTypes' => $productType,
+        ];
+        
+        return view('pages.product.add', $data);
     }
 
     /**
@@ -38,7 +47,12 @@ class ProductController extends Controller
      */
     public function store(ProductRequest $request)
     {
-        //
+        $validatedData = $request->validated();
+
+        $productType = Product::create($validatedData);
+
+        return redirect()->route('product.index')
+                ->with('success', 'Data unit sekolah berhasil ditambahkan.');
     }
 
     /**
@@ -66,11 +80,11 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      * 
-     * @param  \Illuminate\Http\Product  $request
+     * @param  \Illuminate\Http\ProductRequest  $request
      * @param  \App\Product  $Product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(ProductRequest $request, Product $product)
     {
         //
     }

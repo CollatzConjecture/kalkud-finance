@@ -39,15 +39,20 @@ class ProductRequest extends FormRequest
     {
         return [
             'nama.required' => 'The name is required.',
+
             'harga_beli_satuan.required' => 'The purchase price is required.',
             'harga_beli_satuan.integer' => 'The purchase price must be a number.',
             'harga_beli_satuan.min' => 'The purchase price cannot be negative.',
+
             'harga_jual_satuan.required' => 'The selling price is required.',
             'harga_jual_satuan.integer' => 'The selling price must be a number.',
             'harga_jual_satuan.min' => 'The selling price cannot be negative.',
+            
             'tanggal_berlaku.required' => 'The effective date is required.',
             'tanggal_berlaku.date' => 'The effective date is not a valid date.',
+            
             'product_type_id.exists' => 'The selected product type is invalid.',
+            'product_type_id.nullable' => 'The product type is optional.',
         ];
     }
 }

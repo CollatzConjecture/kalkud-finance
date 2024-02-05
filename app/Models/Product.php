@@ -34,7 +34,7 @@ class Product extends Model
      */
     protected $fillable = [
         'uuid', 
-        'product_types_id',
+        'product_type_id',
         'nama',
         'harga_beli_satuan',
         'harga_jual_satuan',

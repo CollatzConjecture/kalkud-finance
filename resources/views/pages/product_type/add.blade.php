@@ -16,7 +16,7 @@
                     <li aria-current="page">
                         <div class="breadcrumb-current">
                             <i icon-name="chevron-right" class="mr-2 w-5 h-5"></i>
-                            <span>Tambah Lowongan</span>
+                            <span>Tambah Tipe Barang</span>
                         </div>
                     </li>
                 </ol>
@@ -34,7 +34,7 @@
                     <div class="flex flex-col p-5 gap-5">
                         <div>
                             <label for="nama" class="block mb-2">Nama Tipe <span class="text-red">*</span></label>
-                            <input name="nama" type="text" id="nama" class="input-field" placeholder="Masukkan nama unit" value="{{ old('nama') }}">
+                            <input name="nama" type="text" id="nama" class="input-field" placeholder="Masukkan nama tipe product" value="{{ old('nama') }}">
                             @error('nama')
                                 <div class="error-message mt-2">
                                     {{ $message }}
