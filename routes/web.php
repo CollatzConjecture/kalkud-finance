@@ -26,3 +26,5 @@ Route::resource('/unit', UnitController::class);
 
 Route::resource('/product-type', ProductTypeController::class);
 
+Route::resource('/product', ProductTypeController::class);
+

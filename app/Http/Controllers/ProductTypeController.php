@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductTypeRequest;
 use App\Models\ProductType;
-use Illuminate\Http\Request;
 
 class ProductTypeController extends Controller
 {
@@ -73,6 +72,7 @@ class ProductTypeController extends Controller
     {
         return view('pages.product_type.edit', compact('productType'));
     }
+    
     /**
      * Update the specified resource in storage.
      * 
