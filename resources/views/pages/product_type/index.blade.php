@@ -36,11 +36,11 @@
                                     <a href="{{ route('product-type.edit', $type->id) }}" class="button-secondary px-5 py-2">
                                         Edit
                                     </a>
-                                    <form method="POST" action="{{ route('product-type.destroy', $type->id) }}">
+                                    <form method="POST" action="{{ route('product-type.destroy', $type->id) }}" id="delete-form-{{ $type->id }}">
                                         @csrf
                                         @method('delete')
-                                        <button type="submit" class="button-delete">
-                                        <i icon-name="trash-2"></i>
+                                        <button type="button" onclick="confirmDelete('{{ $type->id }}')" class="button-delete">
+                                            <i icon-name="trash-2"></i>
                                         </button>
                                     </form>
                                 </div>

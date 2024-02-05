@@ -23,6 +23,7 @@
                             <th>Nama Barang</th>
                             <th>Harga Beli</th>
                             <th>Harga Jual</th>
+                            <th>Tanggal Berlaku</th>
                             <th class="!text-center">Aksi</th>
                             </tr>
                         </thead>
@@ -34,6 +35,7 @@
                                 <td>{{ $product->nama }}</td>
                                 <td>{{ number_format($product->harga_beli_satuan, 0, ',', '.') }}</td>
                                 <td>{{ number_format($product->harga_jual_satuan, 0, ',', '.') }}</td>
+                                <td>{{ \Carbon\Carbon::parse($product->tanggal_berlaku)->format('d F Y') }}</td>
                                 <td>
                                 <div class="flex gap-x-3 justify-center">
                                     <a href="{{ route('product.show', $product->id) }}" class="button-primary px-5 py-2">
@@ -42,13 +44,13 @@
                                     <a href="{{ route('product.edit', $product->id) }}" class="button-secondary px-5 py-2">
                                         Edit
                                     </a>
-                                    <form method="POST" action="{{ route('product.destroy', $product->id) }}">
+                                    <form method="POST" action="{{ route('product.destroy', $product->id) }}" id="delete-form-{{ $product->id }}">
                                         @csrf
                                         @method('delete')
-                                        <button type="submit" class="button-delete">
-                                        <i icon-name="trash-2"></i>
+                                        <button type="button" onclick="confirmDelete('{{ $product->id }}')" class="button-delete">
+                                            <i icon-name="trash-2"></i>
                                         </button>
-                                    </form>
+                                    </form>                                    
                                 </div>
                                 </td>
                             </tr>

@@ -38,10 +38,10 @@
                                     <a href="{{ route('unit.edit', $unit->id) }}" class="button-secondary px-5 py-2">
                                         Edit
                                     </a>
-                                    <form method="POST" action="{{ route('unit.destroy', $unit->id) }}">
+                                    <form method="POST" action="{{ route('unit.destroy', $unit->id) }}" id="delete-form-{{ $unit->id }}">
                                         @csrf
                                         @method('delete')
-                                        <button type="submit" class="button-delete">
+                                        <button type="button" onclick="confirmDelete('{{ $unit->id }}')" class="button-delete">
                                         <i icon-name="trash-2"></i>
                                         </button>
                                     </form>

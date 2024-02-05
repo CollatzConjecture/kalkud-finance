@@ -43,6 +43,10 @@
                     <p class="title-field">Harga Jual Satuan</p>
                     <p class="font-medium">{{ number_format($product->harga_jual_satuan, 0, ',', '.') }}</p>
                 </div>
+                <div>
+                    <p class="title-field">Tanggal Berlaku</p>
+                    <p class="font-medium">{{ \Carbon\Carbon::parse($product->tanggal_berlaku)->format('d F Y') }}</p>
+                </div>
             </div>
         </div>
 </x-app-layout>

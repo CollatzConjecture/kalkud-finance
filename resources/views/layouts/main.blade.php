@@ -45,7 +45,8 @@
         <script src="https://unpkg.com/lucide@latest"></script>
         <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>    
         <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
-        
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
         <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
         
         <script defer src="https://cdn.jsdelivr.net/npm/@flasher/flasher@1.1.1/dist/flasher.min.js"></script>
@@ -75,6 +76,23 @@
                     },
                 });
             });
+
+            function confirmDelete(productId) {
+                event.preventDefault();
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        document.getElementById('delete-form-' + productId).submit();
+                    }
+                });
+            }
         </script>
     </body>
 </html>
