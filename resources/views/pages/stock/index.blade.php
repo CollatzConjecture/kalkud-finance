@@ -50,7 +50,7 @@
                                         <button type="button" onclick="confirmDelete('{{ $stock->id }}')" class="button-delete">
                                             <i icon-name="trash-2"></i>
                                         </button>
-                                    </form>                                    
+                                    </form>                                  
                                 </div>
                                 </td>
                             </tr>

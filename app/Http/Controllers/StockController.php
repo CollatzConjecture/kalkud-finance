@@ -48,7 +48,7 @@ class StockController extends Controller
      */
     public function show(Stock $stock)
     {
-        //
+        return view('pages.stock.detail', compact('stock'));
     }
 
     /**
@@ -82,6 +82,8 @@ class StockController extends Controller
      */
     public function destroy(Stock $stock)
     {
-        //
+        $stock->delete();
+
+        return redirect()->route('stock.index')->with('success', 'Stock deleted successfully.');
     }
 }
