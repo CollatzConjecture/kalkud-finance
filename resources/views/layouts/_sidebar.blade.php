@@ -17,7 +17,7 @@
                 <i icon-name="pen"></i>
                 <p class="text-grey-primary">Create Transaction</p>
             </a>
-            <a href="" class="item-menu {{ request()->routeIs('stock*') ? 'active' : '' }}">
+            <a href="{{ route('stock.index') }}" class="item-menu {{ request()->routeIs('stock*') ? 'active' : '' }}">
                 <i icon-name="clipboard-list"></i>
                 <p class="text-grey-primary">Stock</p>
             </a>
