@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StockRequest;
+use App\Models\Product;
 use App\Models\Stock;
 
 class StockController extends Controller
@@ -26,7 +27,15 @@ class StockController extends Controller
      */
     public function create()
     {
-        //
+        $stocks = Stock::get();
+        $products = Product::orderBy('nama')->get();
+
+        $data = [
+            'stock' => $stocks,
+            'product' => $products,
+        ];
+        
+        return view('pages.stock.add', $data);
     }
 
     /**
