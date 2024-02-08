@@ -13,7 +13,7 @@
                 <i icon-name="layout-grid"></i>
                 <p class="text-grey-primary">Beranda</p>
             </a>
-            <a href="" class="item-menu {{ request()->routeIs('create-transaction*') ? 'active' : '' }}">
+            <a href="{{ route('stock-transaction.index') }}" class="item-menu {{ request()->routeIs('stock-transaction*') ? 'active' : '' }}">
                 <i icon-name="pen"></i>
                 <p class="text-grey-primary">Create Transaction</p>
             </a>

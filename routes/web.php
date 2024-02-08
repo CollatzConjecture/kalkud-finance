@@ -6,6 +6,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductTypeController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\StockController;
+use App\Http\Controllers\StockTransactionController;
 use App\Http\Controllers\UnitController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,3 +32,5 @@ Route::resource('/product-type', ProductTypeController::class);
 Route::resource('/product', ProductController::class);
 
 Route::resource('/stock', StockController::class);
+
+Route::resource('/stock-transaction', StockTransactionController::class);
