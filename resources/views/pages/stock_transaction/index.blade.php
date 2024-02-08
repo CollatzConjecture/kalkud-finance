@@ -19,7 +19,7 @@
                         <thead>
                             <tr>
                             <th>ID.</th>
-                            <th>Nama Stok Produk</th>
+                            <th>Nama Stock Product</th>
                             <th>Unit</th>
                             <th>Harga Beli</th>
                             <th>Harga Jual</th>
