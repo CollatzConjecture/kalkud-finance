@@ -20,6 +20,7 @@
                             <tr>
                             <th>ID.</th>
                             <th>Nama Barang</th>
+                            <th>Tipe Barang</th>
                             <th>Harga Beli</th>
                             <th>Harga Jual</th>
                             <th>Qty</th>
@@ -32,6 +33,7 @@
                             <tr>
                                 <td class="bg-white">{{ $index+1 }}</td>
                                 <td>{{ optional($stock->product)->nama ?? 'Null' }}</td>
+                                <td>{{ optional($stock->product)->productType->nama ?? 'Null' }}</td>
                                 <td>{{ number_format($stock->harga_beli, 0, ',', '.') }}</td>
                                 <td>{{ number_format($stock->harga_jual, 0, ',', '.') }}</td>
                                 <td>{{ $stock->qty }}</td>

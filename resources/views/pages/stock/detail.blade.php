@@ -32,6 +32,10 @@
                     <p class="font-medium">{{ $stock->product->nama }}</p>
                 </div>
                 <div>
+                    <p class="title-field">Tipe Produk</p>
+                    <p class="font-medium">{{ $stock->product->productType->nama }}</p>
+                </div>
+                <div>
                     <p class="title-field">Harga Beli Satuan</p>
                     <p class="font-medium">{{ number_format($stock->harga_beli, 0, ',', '.') }}</p>
                 </div>

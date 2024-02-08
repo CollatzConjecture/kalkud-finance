@@ -28,11 +28,12 @@ class StockController extends Controller
     public function create()
     {
         $stocks = Stock::get();
-        $products = Product::orderBy('nama')->get();
 
+        $products = Product::with('productType')->orderBy('nama')->get();
+    
         $data = [
-            'stock' => $stocks,
-            'product' => $products,
+            'stocks' => $stocks,
+            'products' => $products,
         ];
         
         return view('pages.stock.add', $data);
@@ -46,7 +47,12 @@ class StockController extends Controller
      */
     public function store(StockRequest $request)
     {
-        //
+        $validatedData = $request->validated();
+
+        $stock = Stock::create($validatedData);
+
+        return redirect()->route('stock.index')
+                ->with('success', 'Data Stock berhasil ditambahkan.');
     }
 
     /**
@@ -68,7 +74,9 @@ class StockController extends Controller
      */
     public function edit(Stock $stock)
     {
-        //
+        $products = Product::with('productType')->orderBy('nama')->get();
+    
+        return view('pages.stock.edit', compact('stock', 'products'));
     }
 
     /**
@@ -80,7 +88,13 @@ class StockController extends Controller
      */
     public function update(StockRequest $request, Stock $stock)
     {
-        //
+        $validatedData = $request->validated();
+
+        // $validatedData['updated_by'] = auth()->id();
+
+        $stock->update($validatedData);
+    
+        return redirect()->route('stock.index')->with('success', 'Stock updated successfully.');
     }
 
     /**

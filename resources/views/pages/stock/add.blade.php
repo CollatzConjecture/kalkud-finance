@@ -36,9 +36,9 @@
                             <label for="product_id" class="block mb-2">Nama Barang<span class="text-red">*</span></label>
                             <select name="product_id" id="product_id" class="input-field">
                                 <option value="">Pilih Barang</option>
-                                @foreach ($product as $product)
+                                @foreach ($products as $product)
                                     <option value="{{ $product->id }}" {{ old('product_id') == $product->id ? 'selected' : '' }}>
-                                        {{ $product->nama }}
+                                        {{ $product->nama }} - ({{ $product->productType->nama ?? 'No Type' }})
                                     </option>
                                 @endforeach
                             </select>
