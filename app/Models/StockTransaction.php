@@ -22,7 +22,6 @@ class StockTransaction extends Model
      * @var array
      */
     protected $dates = [
-        'tanggal_berlaku',
         'created_at',
         'updated_at',
     ];
@@ -40,6 +39,7 @@ class StockTransaction extends Model
         'harga_jual',
         'qty',
         'tipe',
+        'tanggal_berlaku',
     ];
 
     /**

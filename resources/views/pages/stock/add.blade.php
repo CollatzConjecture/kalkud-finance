@@ -68,7 +68,7 @@
                         </div>
                         <div>
                             <label for="qty" class="block mb-2">qty<span class="text-red">*</span></label>
-                            <input name="qty" type="text" id="qty" class="input-field" placeholder="Masukan harga jual" value="{{ old('qty') }}">
+                            <input name="qty" type="text" id="qty" class="input-field" placeholder="Masukan quantity" value="{{ old('qty') }}">
                             @error('qty')
                                 <div class="error-message mt-2">
                                     {{ $message }}

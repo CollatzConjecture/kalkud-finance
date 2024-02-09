@@ -27,8 +27,8 @@ class StockTransactionRequest extends FormRequest
             'qty' => 'required|integer|min:0',
             'tipe' => 'required|in:Barang Masuk,Barang Keluar',
             'tanggal_berlaku' => 'required|date',
-            'stock_id' => 'nullable|exists:stocks,id',
-            'unit_id' => 'nullable|exists:units,id',
+            'stock_id' => 'required|exists:stocks,id',
+            'unit_id' => 'required|exists:units,id',
         ];
     }
 

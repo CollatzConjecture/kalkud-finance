@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StockTransactionRequest;
+use App\Models\Stock;
 use App\Models\StockTransaction;
 
 class StockTransactionController extends Controller
@@ -26,7 +27,22 @@ class StockTransactionController extends Controller
      */
     public function create()
     {
-        //
+        $stockTransactions = StockTransaction::with('unit')
+            ->join('units', 'stock_transactions.unit_id', '=', 'units.id')
+            ->orderBy('units.nama')
+            ->get();
+
+        $stocks = Stock::join('products', 'stocks.product_id', '=', 'products.id')
+                ->with(['product.productType'])
+                ->orderBy('products.nama', 'asc')
+                ->get();
+
+        $data = [
+            'stockTransactions' => $stockTransactions,
+            'stocks' => $stocks,
+        ];
+        
+        return view('pages.stock_transaction.add', $data);
     }
 
     /**
@@ -37,7 +53,12 @@ class StockTransactionController extends Controller
      */
     public function store(StockTransactionRequest $request)
     {
-        //
+        $validatedData = $request->validated();
+
+        $stockTransaction = StockTransaction::create($validatedData);
+    
+        return redirect()->route('stock-transaction.index')
+            ->with('success', 'Data transaction berhasil ditambahkan.');
     }
 
     /**
