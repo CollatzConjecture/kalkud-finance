@@ -103,7 +103,7 @@
                                     {{ $message }}
                                 </div>
                             @enderror
-                        </div>                        
+                        </div>                     
                         <div>
                             <label for="tanggal_berlaku" class="block mb-2">Tanggal Berlaku<span class="text-red">*</span></label>
                             <input name="tanggal_berlaku" type="date" id="tanggal_berlaku" class="input-field" value="{{ old('tanggal_berlaku') }}">

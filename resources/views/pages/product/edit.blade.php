@@ -69,7 +69,7 @@
                         </div>
                         <div>
                             <label for="harga_beli_satuan" class="block mb-2">Harga Beli Satuan<span class="text-red">*</span></label>
-                            <input name="harga_beli_satuan" type="text" id="harga_beli_satuan" class="input-field" placeholder="Masukan harga beli" value="{{ old('harga_beli_satuan') }}">
+                            <input name="harga_beli_satuan" type="text" id="harga_beli_satuan" class="input-field" placeholder="Masukan harga beli" value="{{ old('harga_beli_satuan', $product->harga_beli_satuan) }}">
                             @error('harga_beli_satuan')
                                 <div class="error-message mt-2">
                                     {{ $message }}
@@ -78,7 +78,7 @@
                         </div>
                         <div>
                             <label for="harga_jual_satuan" class="block mb-2">Harga Jual Satuan<span class="text-red">*</span></label>
-                            <input name="harga_jual_satuan" type="text" id="harga_jual_satuan" class="input-field" placeholder="Masukan harga jual" value="{{ old('harga_jual_satuan') }}">
+                            <input name="harga_jual_satuan" type="text" id="harga_jual_satuan" class="input-field" placeholder="Masukan harga jual" value="{{ old('harga_jual_satuan', $product->harga_jual_satuan) }}">
                             @error('harga_jual_satuan')
                                 <div class="error-message mt-2">
                                     {{ $message }}
@@ -87,7 +87,7 @@
                         </div>
                         <div>
                             <label for="tanggal_berlaku" class="block mb-2">Tanggal Berlaku<span class="text-red">*</span></label>
-                            <input name="tanggal_berlaku" type="date" id="tanggal_berlaku" class="input-field" value="{{ old('tanggal_berlaku') }}">
+                            <input name="tanggal_berlaku" type="date" id="tanggal_berlaku" class="input-field" value="{{ old('tanggal_berlaku', $product->tanggal_berlaku) }}">
                             @error('tanggal_berlaku')
                                 <div class="error-message mt-2">
                                     {{ $message }}

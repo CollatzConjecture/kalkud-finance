@@ -16,7 +16,7 @@
                     <li aria-current="page">
                         <div class="breadcrumb-current">
                             <i icon-name="chevron-right" class="mr-2 w-5 h-5"></i>
-                            <span>Edit Tipe</span>
+                            <span>Edit Stock</span>
                         </div>
                     </li>
                 </ol>
@@ -46,7 +46,7 @@
                             <select name="product_id" id="product_id" class="input-field">
                                 <option value="">Pilih Barang</option>
                                 @foreach ($products as $product)
-                                    <option value="{{ $product->id }}" {{ old('product_id') == $product->id ? 'selected' : '' }}>
+                                    <option value="{{ $product->id }}" {{ old('product_id', $stock->product_id) == $product->id ? 'selected' : '' }}>
                                         {{ $product->nama }} - ({{ $product->productType->nama ?? 'No Type' }})
                                     </option>
                                 @endforeach
@@ -59,7 +59,7 @@
                         </div>
                         <div>
                             <label for="harga_beli" class="block mb-2">Harga Beli Satuan<span class="text-red">*</span></label>
-                            <input name="harga_beli" type="text" id="harga_beli" class="input-field" placeholder="Masukan harga beli" value="{{ old('harga_beli') }}">
+                            <input name="harga_beli" type="text" id="harga_beli" class="input-field" placeholder="Masukan harga beli" value="{{ old('harga_beli', $stock->harga_beli) }}">
                             @error('harga_beli')
                                 <div class="error-message mt-2">
                                     {{ $message }}
@@ -68,7 +68,7 @@
                         </div>
                         <div>
                             <label for="harga_jual" class="block mb-2">Harga Jual Satuan<span class="text-red">*</span></label>
-                            <input name="harga_jual" type="text" id="harga_jual" class="input-field" placeholder="Masukan harga jual" value="{{ old('harga_jual') }}">
+                            <input name="harga_jual" type="text" id="harga_jual" class="input-field" placeholder="Masukan harga jual" value="{{ old('harga_jual', $stock->harga_jual) }}">
                             @error('harga_jual')
                                 <div class="error-message mt-2">
                                     {{ $message }}
@@ -77,7 +77,7 @@
                         </div>
                         <div>
                             <label for="qty" class="block mb-2">qty<span class="text-red">*</span></label>
-                            <input name="qty" type="text" id="qty" class="input-field" placeholder="Masukan harga jual" value="{{ old('qty') }}">
+                            <input name="qty" type="text" id="qty" class="input-field" placeholder="Masukan harga jual" value="{{ old('qty', $stock->qty) }}">
                             @error('qty')
                                 <div class="error-message mt-2">
                                     {{ $message }}
@@ -86,7 +86,7 @@
                         </div>
                         <div>
                             <label for="tanggal_berlaku" class="block mb-2">Tanggal Berlaku<span class="text-red">*</span></label>
-                            <input name="tanggal_berlaku" type="date" id="tanggal_berlaku" class="input-field" value="{{ old('tanggal_berlaku') }}">
+                            <input name="tanggal_berlaku" type="date" id="tanggal_berlaku" class="input-field" value="{{ old('tanggal_berlaku', $stock->tanggal_berlaku) }}">
                             @error('tanggal_berlaku')
                                 <div class="error-message mt-2">
                                     {{ $message }}

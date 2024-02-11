@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StockTransactionRequest;
 use App\Models\Stock;
 use App\Models\StockTransaction;
+use App\Models\Unit;
 
 class StockTransactionController extends Controller
 {
@@ -80,7 +81,14 @@ class StockTransactionController extends Controller
      */
     public function edit(StockTransaction $stockTransaction)
     {
-        //
+        $stocks = Stock::join('products', 'stocks.product_id', '=', 'products.id')
+                ->with(['product.productType'])
+                ->orderBy('products.nama', 'asc')
+                ->get();
+
+        $units = Unit::orderBy('nama')->get();
+
+        return view('pages.stock_transaction.edit', compact('stockTransaction', 'stocks', 'units'));
     }
 
     /**
@@ -92,7 +100,14 @@ class StockTransactionController extends Controller
      */
     public function update(StockTransactionRequest $request, StockTransaction $stockTransaction)
     {
-        //
+        $validatedData = $request->validated();
+
+        // $validatedData['updated_by'] = auth()->id();
+
+        $stockTransaction->update($validatedData);
+    
+        return redirect()->route('stock-transaction.index')
+                ->with('success', 'Stock transaction updated successfully.');
     }
 
     /**
@@ -105,6 +120,7 @@ class StockTransactionController extends Controller
     {
         $stockTransaction->delete();
 
-        return redirect()->route('stock-transaction.index')->with('success', 'Transaction deleted successfully.');
+        return redirect()->route('stock-transaction.index')
+                ->with('success', 'Transaction deleted successfully.');
     }
 }
