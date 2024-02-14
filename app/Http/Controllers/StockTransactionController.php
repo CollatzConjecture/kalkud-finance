@@ -82,14 +82,15 @@ class StockTransactionController extends Controller
     public function edit(StockTransaction $stockTransaction)
     {
         $stocks = Stock::join('products', 'stocks.product_id', '=', 'products.id')
+                ->select('stocks.id', 'stocks.product_id', 'stocks.qty', 'products.id as product_id', 'products.nama')
                 ->with(['product.productType'])
                 ->orderBy('products.nama', 'asc')
                 ->get();
-
+    
         $units = Unit::orderBy('nama')->get();
-
+    
         return view('pages.stock_transaction.edit', compact('stockTransaction', 'stocks', 'units'));
-    }
+    }    
 
     /**
      * Update the specified resource in storage.
@@ -100,6 +101,7 @@ class StockTransactionController extends Controller
      */
     public function update(StockTransactionRequest $request, StockTransaction $stockTransaction)
     {
+        dd($request);
         $validatedData = $request->validated();
 
         // $validatedData['updated_by'] = auth()->id();

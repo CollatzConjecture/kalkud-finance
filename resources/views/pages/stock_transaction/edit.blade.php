@@ -44,7 +44,7 @@
                     <hr />
                     <div class="flex flex-col p-5 gap-5">
                         <div>
-                            <label for="stock_id" class="block mb-2">Nama Barang<span class="text-red">*</span></label>
+                            <label for="stock" class="block mb-2">Nama Barang<span class="text-red">*</span></label>
                             <select name="stock_id" id="stock_id" class="input-field">
                                 <option value="">Pilih Barang</option>
                                 @foreach ($stocks as $stock)
