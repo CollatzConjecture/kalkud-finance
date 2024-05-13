@@ -13,8 +13,12 @@ class LoginController extends Controller
     */
     public function showLoginForm()
     {
+        if (auth()->check()) {
+            return redirect('/home');
+        }
+    
         return view('auth.login');
-    }
+    }    
 
     /** 
      * Login method
@@ -22,13 +26,7 @@ class LoginController extends Controller
     */
     public function login(LoginRequest $request)
     {
-        $credentials = $request->validated();
-
-        if ($token = auth()->attempt($credentials)) {
-            return $this->responseWithToken($token, auth()->user());
-        } else {
-            return response()->json(['message' => 'Invalid Credentials'], 401);
-        }
+        
     }
 
     /** 
@@ -40,21 +38,6 @@ class LoginController extends Controller
         auth()->logout();
 
         return response()->json(['message' => 'Successfully logged out']);
-    }
-
-
-    /** 
-     * Return JWT Token
-     * 
-    */
-    protected function responseWithToken($token, $user)
-    {
-        return response()->json([
-            'status' => 'success',
-            'user' => $user,
-            'access_token' => $token,
-            'type' => 'bearer'
-        ]);
     }
 
 }

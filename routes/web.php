@@ -1,10 +1,9 @@
 <?php
 
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductTypeController;
-use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\StockTransactionController;
 use App\Http\Controllers\UnitController;
@@ -21,16 +20,45 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/login', [LoginController::class, 'showLoginForm']);
-Route::get('/register', [RegisterController::class, 'showRegistrationForm']);
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::resource('/unit', UnitController::class);
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::resource('/product-type', ProductTypeController::class);
+Route::get('/', function () {
+    if (auth()->check()) {
+        return redirect('/home');
+    } else {
+        return redirect('/login');
+    }
+});
 
-Route::resource('/product', ProductController::class);
+Route::get('/home', function () {
+    return view('home');
+})->middleware('auth')->name('home');
 
-Route::resource('/stock', StockController::class);
+Route::get('/login', [AuthenticatedSessionController::class, 'create'])
+    ->middleware('guest')
+    ->name('login');
 
-Route::resource('/stock-transaction', StockTransactionController::class);
+Route::middleware('auth')->group(function () {
+
+    Route::resource('/unit', UnitController::class);
+
+    Route::resource('/product-type', ProductTypeController::class);
+
+    Route::resource('/product', ProductController::class);
+
+    Route::resource('/stock', StockController::class);
+
+    Route::resource('/stock-transaction', StockTransactionController::class);
+
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
