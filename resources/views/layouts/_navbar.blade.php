@@ -21,7 +21,7 @@
                 <p>Lihat Profil</p>
             </a>
             <hr/>
-            <form method="POST" action="">
+            <form method="POST" action="{{ route('logout') }}">
                 @csrf
                 <button type="submit" class="w-full dropdown-item rounded-b-xl">
                     <i icon-name="log-out" class="text-grey-primary"></i>
