@@ -6,6 +6,7 @@ use App\Http\Controllers\ProductTypeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\StockTransactionController;
+use App\Http\Controllers\ExportController;
 use App\Http\Controllers\UnitController;
 use Illuminate\Support\Facades\Route;
 
@@ -50,7 +51,9 @@ Route::middleware('auth')->group(function () {
     Route::resource('/product', ProductController::class);
     Route::resource('/stock', StockController::class);
     Route::resource('/stock-transaction', StockTransactionController::class);
-    
+    Route::get('/export', [ExportController::class, 'index'])->name('export');
+    Route::get('/export/data', [ExportController::class, 'export'])->name('export.data');   
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

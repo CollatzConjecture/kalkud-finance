@@ -42,10 +42,10 @@ $currentRouteName = Route::currentRouteName();
                 <i icon-name="school"></i>
                 <p class="text-grey-primary">Units</p>
             </a>
-            <a href="" class="item-menu {{ request()->routeIs('export-data*') ? 'active' : '' }}">
+            <a href="{{ route('export') }}" class="item-menu {{ request()->routeIs('export*') ? 'active' : '' }}">
                 <i icon-name="table"></i>
                 <p class="text-grey-primary">Export Data</p>
-            </a>
+            </a>            
             <a href="{{ route('profile.edit') }}" class="item-menu {{ request()->routeIs('pengguna*') ? 'active' : '' }}">
                 <i icon-name="users"></i>
                 <p class="text-grey-primary">Kelola Pengguna</p>
