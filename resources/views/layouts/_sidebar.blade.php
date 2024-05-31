@@ -46,7 +46,7 @@ $currentRouteName = Route::currentRouteName();
                 <i icon-name="table"></i>
                 <p class="text-grey-primary">Export Data</p>
             </a>
-            <a href="" class="item-menu {{ request()->routeIs('pengguna*') ? 'active' : '' }}">
+            <a href="{{ route('profile.edit') }}" class="item-menu {{ request()->routeIs('pengguna*') ? 'active' : '' }}">
                 <i icon-name="users"></i>
                 <p class="text-grey-primary">Kelola Pengguna</p>
             </a>

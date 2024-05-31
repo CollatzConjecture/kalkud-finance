@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
             backgroundColor: 'rgba(255, 206, 86, 0.2)',
             borderColor: 'rgba(255, 206, 86, 1)',
             data: [30, 25, 20, 15, 10, 5, 0],
-            type: 'line'
+            type: 'radar'
         },
         {
             elementId: 'chart5',
